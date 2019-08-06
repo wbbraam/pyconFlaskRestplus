@@ -1,0 +1,9 @@
+flask_restplus==0.12.1
+lxml==4.3.0
+Flask==1.0.2
+Werkzeug==0.14.1
+cryptography==2.4.2
+pyOpenSSL==19.0.0
+protobuf==3.9.1
+ipaddr==2.2.0
+ordereddict==1.1
