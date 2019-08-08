@@ -43,7 +43,7 @@ flask restplus has some nice additional tricks for easy json creation.
 
 #COURSE 2
 descriptiveTextCourse2 = """
-Course file 2 leanrs you how to accept parameters in your API,
+Course file 2 learns you how to accept parameters in your API,
 we will start with reading the parameters from the HTTP Get call.
 And in the last one we will read the payload of an HTTP Post"""
 
@@ -71,4 +71,23 @@ The get method or post method should now be
 def post(self, action):
 and the action parameter is filled from the api end point.
 
+"""
+
+#COURSE 3
+descriptiveTextCourse3 = """
+Course 3, will teach you how to read and return json. But also how to describe your api 
+in swagger, using a model"""
+
+question3_1 = "Build a new api /returnJson (post) and make it return the dictionary present in the source as json"
+question3_2 = "Build a new api /concatJson (post), make it read json input from the body and add it to the original request field in the dictionary before returning"
+question3_3 = "Build a new api /modeledJson (post), now define an api model and make sure we know what the json input format is we require!"
+
+course3_hints = """
+1) here is where restplus comes into play, just return the dictionary! and it will be converted
+into useful json automatically
+
+2) request.data and converting it to json is an option.. how about request.json?
+
+3) use the api.model method and @api.expect annotation. check for the validate option! mark this as true
+https://flask-restplus.readthedocs.io/en/stable/marshalling.html 
 """
