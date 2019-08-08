@@ -91,3 +91,34 @@ into useful json automatically
 3) use the api.model method and @api.expect annotation. check for the validate option! mark this as true
 https://flask-restplus.readthedocs.io/en/stable/marshalling.html 
 """
+
+#COURSE 4
+descriptiveTextCourse4 = """
+Course 4 is where it all comes together. I hope you have time, else try so at a later moment
+
+The idea is to write 1 API endpoint (or more if you like) to allow you to:
+1) read certain records from a CSV file
+2) delete certain records from a CSV file
+3) change records from a csv file
+4) add records to a CSV file
+
+You can do this with 1 endpoint and 4 different http call types:
+get (read)
+post (insert)
+patch (update)
+delete (delete)
+
+Make and model a nice rest api including a json model. 
+Nothing to fancy to start with. An ID might even be enough
+
+If you have finished that 
+PART 2:
+
+Now use the abort option to alter the HTML return code
+during error situations.. record not found might be a nice 404!
+for example
+
+
+https://flask-restplus.readthedocs.io/en/stable/errors.html
+
+"""
