@@ -40,3 +40,35 @@ Any value returned by your get method will be the data returned by your api. For
 flask restplus has some nice additional tricks for easy json creation.
 
 """
+
+#COURSE 2
+descriptiveTextCourse2 = """
+Course file 2 leanrs you how to accept parameters in your API,
+we will start with reading the parameters from the HTTP Get call.
+And in the last one we will read the payload of an HTTP Post"""
+
+question2_1 = 'Build a new api /sum accept 2 parameters called parma and parb. Add them together and return the result'
+question2_2 = 'Now adjust /sum to have the parameters documented in the swagger interface'
+question2_3 = 'Passing parameters in a get is not the best way. Create a post method within the /sum endpoint, and allow a HTTP Post api call'
+question2_4 = 'Build an api called /compute/<string:action>/ and allow for add,subtract,multiply and divide actions'
+
+course2_hints = """
+1)
+request.art.get("foobar") gives you the foobar parameter from the api url.
+parameters in an url are passed like this:
+http://127.0.0.1/sumfoobar?foobar1=bla&foobar2=blabla
+
+2)
+Documenting parameters can be done using the following annotation
+@api.doc(params={'parmfoo': 'valuebar'})
+
+3)
+retreiving the body of a post can be done using request.data
+request.json is also an option but we tackle json later on.
+
+4)
+The get method or post method should now be
+def post(self, action):
+and the action parameter is filled from the api end point.
+
+"""
