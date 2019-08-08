@@ -43,7 +43,11 @@ flask restplus has some nice additional tricks for easy json creation.
 
 #COURSE 2
 descriptiveTextCourse2 = """
+<<<<<<< HEAD
 Course file 2 leanrs you how to accept parameters in your API,
+=======
+Course file 2 learns you how to accept parameters in your API,
+>>>>>>> master
 we will start with reading the parameters from the HTTP Get call.
 And in the last one we will read the payload of an HTTP Post"""
 
@@ -71,4 +75,57 @@ The get method or post method should now be
 def post(self, action):
 and the action parameter is filled from the api end point.
 
+<<<<<<< HEAD
+=======
+"""
+
+#COURSE 3
+descriptiveTextCourse3 = """
+Course 3, will teach you how to read and return json. But also how to describe your api 
+in swagger, using a model"""
+
+question3_1 = "Build a new api /returnJson (post) and make it return the dictionary present in the source as json"
+question3_2 = "Build a new api /concatJson (post), make it read json input from the body and add it to the original request field in the dictionary before returning"
+question3_3 = "Build a new api /modeledJson (post), now define an api model and make sure we know what the json input format is we require!"
+
+course3_hints = """
+1) here is where restplus comes into play, just return the dictionary! and it will be converted
+into useful json automatically
+
+2) request.data and converting it to json is an option.. how about request.json?
+
+3) use the api.model method and @api.expect annotation. check for the validate option! mark this as true
+https://flask-restplus.readthedocs.io/en/stable/marshalling.html 
+"""
+
+#COURSE 4
+descriptiveTextCourse4 = """
+Course 4 is where it all comes together. I hope you have time, else try so at a later moment
+
+The idea is to write 1 API endpoint (or more if you like) to allow you to:
+1) read certain records from a CSV file
+2) delete certain records from a CSV file
+3) change records from a csv file
+4) add records to a CSV file
+
+You can do this with 1 endpoint and 4 different http call types:
+get (read)
+post (insert)
+patch (update)
+delete (delete)
+
+Make and model a nice rest api including a json model. 
+Nothing to fancy to start with. An ID might even be enough
+
+If you have finished that 
+PART 2:
+
+Now use the abort option to alter the HTML return code
+during error situations.. record not found might be a nice 404!
+for example
+
+
+https://flask-restplus.readthedocs.io/en/stable/errors.html
+
+>>>>>>> master
 """

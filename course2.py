@@ -18,24 +18,23 @@ api = Api(app, version='1.0', title='flask restplus workshop', description=descr
 
 
 @api.route('/hints')
-class Hints(Resource):
+
+class hints(Resource):
     @api.doc(responses={200: 'Ok'})
     def get(self):
         return course2_hints
 
 
 @api.route('/question1')
-class Question1(Resource):
+class question1(Resource):
 
     def get(self):
         return question2_1
 
-
 @api.route('/question2')
-class Question2(Resource):
+class question2(Resource):
     def get(self):
         return question2_2
-
 
 @api.route('/question3')
 class Question3(Resource):
@@ -48,7 +47,7 @@ class Question3(Resource):
 
 
 @api.route('/question4')
-class Question4(Resource):
+class question4(Resource):
 
     def get(self):
         return question2_4
