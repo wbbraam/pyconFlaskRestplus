@@ -1,54 +1,43 @@
+"""Module for the solutions of course1.py"""
+
 import os
 
-from flask import Flask
-from flask_restplus import Api, Resource
-from werkzeug.contrib.fixers import ProxyFix
-
-from texts import *
-
-app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app)
-
-api = Api(app, version='1.0', title=mainTitle, description=descriptiveTextCourse1)
+from flask_restplus import Resource
+from solutions import create_app, create_api, MY_NAME, QUESTION1_TEMPLATE
+from texts import mainTitle, descriptiveTextCourse1
 
 
-my_name = 'Wietse'
-question1_template = 'My name is {0}!'
+app = create_app() # pylint: disable=invalid-name
+api = create_api(app, mainTitle, descriptiveTextCourse1) # pylint: disable=invalid-name
 
 
 @api.route('/myname')
 class Question1(Resource):
-
+    """Endpoint for /myname"""
     @staticmethod
-    def get(self, name):
-        return question1_template.format(my_name)
+    def get():
+        """GET endpoint for /myname"""
+        return QUESTION1_TEMPLATE.format(MY_NAME)
 
 
 @api.route('/mynameUppercase')
 class Question2(Resource):
+    """Endpoint for /mynameUppercase"""
     @staticmethod
     def get():
-        return question1_template.format(my_name).upper()
+        """GET endpoint for /mynameUppercase"""
+        return QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 
 @api.route('/concattedStrings')
 class Question3(Resource):
+    """Endpoint for /concattedStrings"""
     @staticmethod
     def get():
-        return question1_template.format(my_name) + question1_template.format(my_name).upper()
+        """GET endpoint for /concattedStrings"""
+        return QUESTION1_TEMPLATE.format(MY_NAME) + QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='127.0.0.1', port=5000)
-
-
-
-
-
-
-
-
-
-
-
+    PORT = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='127.0.0.1', port=PORT)
