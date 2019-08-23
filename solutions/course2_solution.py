@@ -46,7 +46,8 @@ class Compute(Resource):
     def post(action):
         """POST endpoint for /compute/{action}"""
         try:
-            calculate(action, request.form)
+            print(request.form.to_dict())
+            return calculate(action, request.form.to_dict())
         except Exception as error:
             logger.error(error)
             raise BadRequest
@@ -55,8 +56,8 @@ class Compute(Resource):
 def calculate(action, data):
     """Function for determining the action and calculating the result"""
     try:
-        first_param = data[NAME_FIRST_PARAM]
-        second_param = data[NAME_SECOND_PARAM]
+        first_param = int(data.get(NAME_FIRST_PARAM))
+        second_param = int(data.get(NAME_SECOND_PARAM))
     except Exception:
         raise BadRequest
 
@@ -66,6 +67,7 @@ def calculate(action, data):
         result = first_param * second_param
     elif action.lower() == 'add':
         result = first_param + second_param
+        print(result)
     elif action.lower() == 'divide':
         result = first_param / second_param
     else:

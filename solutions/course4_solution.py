@@ -11,7 +11,7 @@ from solutions import create_api, create_app, mainTitle
 app = create_app()  # pylint: disable=invalid-name
 api = create_api(app, mainTitle, 'Description')  # pylint: disable=invalid-name
 
-CSV_FILE_NAME = 'example.csv'
+CSV_FILE_NAME = '/../example.csv'
 
 
 @api.route('/employee/<string:employee_id>')
@@ -28,7 +28,7 @@ class Csv(Resource):
         update_employee_with_id(employee_id, request.json)
 
     @staticmethod
-    def post():
+    def post(employee_id):
         """POST endpoint for adding new employee info"""
         add_employee_data(request.json)
 
@@ -69,9 +69,10 @@ def delete_employee_with_id(employee_id):
 def read_data_from_csv(file_name):
     """Function to read csv data from the given file"""
     data = dict()
-    with open(file_name, encoding='utf-8-sig') as csv_file:
+    with open(os.path.dirname(__file__) + file_name, encoding='utf-8-sig') as csv_file:
         input_file = csv.DictReader(csv_file)
         for row in input_file:
+            print(row)
             data[row['Employee ID']] = row
     csv_file.close()
     return data
@@ -80,7 +81,7 @@ def read_data_from_csv(file_name):
 def write_data_to_csv(file_name, data, mode, is_rows):
     """Function to write data to the given file. is_rows parameter
        is provided to write multiple rows of data"""
-    with open(file_name, mode=mode) as csv_file:
+    with open(os.path.dirname(__file__) + file_name, mode=mode) as csv_file:
         csv_writer = csv.DictWriter(csv_file, delimiter=',', fieldnames=['Employee ID', 'Name'])
         if mode == 'r+':
             print('mode is {0}'.format('delete'))

@@ -10,8 +10,7 @@ from texts import mainTitle, descriptiveTextCourse1
 MY_NAME = 'Wietse'
 QUESTION1_TEMPLATE = 'My name is {0}!'
 API_MODEL_COURSE3 = 'AwesomeDictionary', {
-    'Original request': fields.String(required=True, min_length=1, max_length=200,
-                                      description='Original request')}
+    'Original request': fields.String(required=True, min_length=1, max_length=200, description='Original request')}
 awesome_dictionary_to_return = {"Most awesome programming language.": "Python",
                                 "Reason": "You dont need a reason.",
                                 "Why": "Just try to do these labs in another language.",
