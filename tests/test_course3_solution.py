@@ -1,9 +1,6 @@
 """test module for course1_solution.py"""
 
 import pytest
-import json
-from flask import jsonify
-
 
 from solutions import course3_solution, awesome_dictionary_to_return
 
@@ -48,5 +45,3 @@ def test_jsonify_post_invalid_should_return_400(test_client):
     expected_response['Original request'] = 'This is the original request'
     response = test_client.post(url, json=body)
     assert response.status_code == 400
-
-

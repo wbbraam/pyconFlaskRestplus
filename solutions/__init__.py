@@ -16,6 +16,8 @@ awesome_dictionary_to_return = {"Most awesome programming language.": "Python",
                                 "Why": "Just try to do these labs in another language.",
                                 "Original request": ""}
 
+course4_field_names = ['Employee ID', 'Name']
+
 
 
 
