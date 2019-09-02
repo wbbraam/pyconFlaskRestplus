@@ -16,16 +16,16 @@ def test_client():
 def test_sum_with_valid_input_should_return_ok(test_client):
     """test for the /sum endpoint with valid params"""
 
-    url = '/sum?value1={0}&value2={1}'.format(1,2)
+    url = '/sum?value1={0}&value2={1}'.format(1, 2)
     response = test_client.get(url)
-    assert response.data ==  b'3\n'
+    assert response.data == b'3\n'
     assert response.status_code == 200
 
 
 def test_sum_with_invalid_input_should_return_bad_request(test_client):
     """test for the /sum endpoint with invalid param"""
 
-    url = '/sum?value={0}&value2={1}'.format(1,2)
+    url = '/sum?value={0}&value2={1}'.format(1, 2)
     response = test_client.get(url)
     assert response.status_code == 400
 
