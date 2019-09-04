@@ -9,11 +9,11 @@ from flask_restplus import Api, Resource, fields
 from werkzeug.exceptions import BadRequest
 
 
-from solutions import create_api, create_app, mainTitle, API_MODEL_COURSE3, \
+from solutions import create_api, create_app, mainTitle, \
      awesome_dictionary_to_return
 
 app = create_app()  # pylint: disable=invalid-name
-api = create_api(app, mainTitle, 'Description')  # pylint: disable=invalid-name
+api = create_api(app, mainTitle, 'Course 3 Solution')  # pylint: disable=invalid-name
 API_MODEL = api.model('AwesomeDictionary', {
     'Original request': fields.String(required=True, min_length=1, max_length=200, description='Original request')})
 

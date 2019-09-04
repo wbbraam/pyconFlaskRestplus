@@ -39,7 +39,7 @@ def test_put_employee(test_client):
     """test for modifying an employee"""
 
     url = '/employee/5'
-    data = {'Name': 'Modified name', 'Employee ID': '5'}
+    data = {'Name': 'Modified name', 'Employee ID': 5}
     response = test_client.put(url, json=data)
     assert response.status_code == 200
 

@@ -2,17 +2,25 @@
 
 import os
 import csv
+import logging as logger
+
 
 from flask import jsonify, request
-from flask_restplus import Resource
+from flask_restplus import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 from solutions import create_api, create_app, mainTitle, course4_field_names
 
 app = create_app()  # pylint: disable=invalid-name
-api = create_api(app, mainTitle, 'Description')  # pylint: disable=invalid-name
+api = create_api(app, mainTitle, 'Example Employee API')  # pylint: disable=invalid-name
 
 CSV_FILE_NAME = '/../example.csv'
+
+API_MODEL = api.model('Employee', {
+    'Employee ID': fields.Integer(required=True, description='Id of the employee'),
+    'Name': fields.String(required=True, min_length=1, max_length=200, description='Name of the employee')})
+
+logger.getLogger().setLevel(logger.INFO)
 
 
 @api.route('/employee/<string:employee_id>')
@@ -27,6 +35,8 @@ class Csv(Resource):
             raise BadRequest
 
     @staticmethod
+    @api.doc(API_MODEL)
+    @api.expect(API_MODEL)
     def put(employee_id):
         """PUT endpoint for modifying the employee info with the given employee_id"""
         if check_if_record_is_there(employee_id):
@@ -53,6 +63,7 @@ class Csv2(Resource):
         return jsonify(list_employees)
 
     @staticmethod
+    @api.expect(API_MODEL, validate=True)
     def post():
         """POST endpoint for adding new employee info"""
         data = request.json
@@ -96,7 +107,7 @@ def read_data_from_csv(file_name):
     with open(os.path.dirname(__file__) + file_name, encoding='utf-8-sig') as csv_file:
         input_file = csv.DictReader(csv_file)
         for row in input_file:
-            print(row)
+            logger.info(row)
             data[row['Employee ID']] = row
     csv_file.close()
     return data
@@ -108,7 +119,7 @@ def write_data_to_csv(file_name, data, mode, is_rows, fieldnames):
     with open(os.path.dirname(__file__) + file_name, mode=mode) as csv_file:
         csv_writer = csv.DictWriter(csv_file, delimiter=',', fieldnames=fieldnames)
         if mode == 'r+':
-            print('mode is {0}'.format('delete'))
+            logger.info('mode is delete')
             csv_file.truncate(0)
             csv_writer.writeheader()
         if is_rows:
@@ -123,7 +134,6 @@ def check_if_record_is_there(employee_id):
     """Function to check if an employee record exists for the given employee id"""
     data = read_data_from_csv(CSV_FILE_NAME)
     if str(employee_id) in data:
-        print('True')
         return True
     return False
 
