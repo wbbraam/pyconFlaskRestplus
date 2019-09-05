@@ -18,16 +18,16 @@ def test_post_employee(test_client):
     """test for posting an employeesk"""
 
     url = '/employee'
-    data = {'Name': 'Test Post', 'Employee ID': 5}
+    data = {'name': 'Test Post', 'employee_id': 5}
     response = test_client.post(url, json=data)
-    assert response.status_code == 200
+    assert response.status_code == 201
 
 
 def test_get_employee(test_client):
     """test for retrieving an employee"""
 
     url = '/employee/5'
-    data = {'Employee ID': '5', 'Name': 'Test Post'}
+    data = {'employee_id': '5', 'name': 'Test Post'}
     response = test_client.get(url)
     assert response.status_code == 200
     print(response.json)
@@ -39,7 +39,7 @@ def test_put_employee(test_client):
     """test for modifying an employee"""
 
     url = '/employee/5'
-    data = {'Name': 'Modified name', 'Employee ID': 5}
+    data = {'name': 'Modified name', 'employee_id': 5}
     response = test_client.put(url, json=data)
     assert response.status_code == 200
 
