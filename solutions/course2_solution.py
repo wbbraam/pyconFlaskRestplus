@@ -30,7 +30,7 @@ NAME_SECOND_PARAM = 'value2'
 class Sum(Resource):
     """Endpoint for /sum"""
     @staticmethod
-    @api.doc(params={NAME_FIRST_PARAM: 'value1', NAME_SECOND_PARAM: 'value2'})
+    @api.doc(params={NAME_FIRST_PARAM: 'First Parameter', NAME_SECOND_PARAM: 'Second Parameter'})
     def get():
         """GET endpoint for /sum"""
         logger.info('Calculating the sum of the params..(GET)')
@@ -42,10 +42,10 @@ class Sum(Resource):
         """POST endpoint for /myname"""
         logger.info('Calculating the sum of the params..(POST)')
         data = request.json
-        print(data)
         return data[NAME_FIRST_PARAM] + data[NAME_SECOND_PARAM]
 
 
+@api.expect(API_MODEL, validate=True)
 @api.route('/compute/<string:action>')
 class Compute(Resource):
     """Endpoint for /compute/{action}"""
@@ -53,7 +53,7 @@ class Compute(Resource):
     def post(action):
         """POST endpoint for /compute/{action}"""
         try:
-            return calculate(action, request.form.to_dict())
+            return calculate(action, request.json)
         except Exception as error:
             logger.error(error)
             raise BadRequest
