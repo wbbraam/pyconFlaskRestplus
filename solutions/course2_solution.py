@@ -4,7 +4,7 @@ import os
 import logging as logger
 
 from flask import request
-from flask_restplus import Resource
+from flask_restplus import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 from solutions import create_api, create_app
@@ -14,6 +14,11 @@ from texts import mainTitle, descriptiveTextCourse2
 app = create_app() # pylint: disable=invalid-name
 api = create_api(app, mainTitle, descriptiveTextCourse2) # pylint: disable=invalid-name
 
+API_MODEL = api.model('Resource', {
+    'value1': fields.Integer(required=True),
+    'value2': fields.Integer(required=True)})
+
+
 ###################
 logger.getLogger().setLevel(logger.INFO)
 NAME_FIRST_PARAM = 'value1'
@@ -21,22 +26,24 @@ NAME_SECOND_PARAM = 'value2'
 ###################
 
 
-@api.doc(params={NAME_FIRST_PARAM: 'value1', NAME_SECOND_PARAM: 'value2'})
 @api.route('/sum')
 class Sum(Resource):
     """Endpoint for /sum"""
     @staticmethod
+    @api.doc(params={NAME_FIRST_PARAM: 'value1', NAME_SECOND_PARAM: 'value2'})
     def get():
         """GET endpoint for /sum"""
         logger.info('Calculating the sum of the params..(GET)')
         return get_param_as_int(NAME_FIRST_PARAM) + get_param_as_int(NAME_SECOND_PARAM)
 
     @staticmethod
+    @api.expect(API_MODEL, validate=True)
     def post():
         """POST endpoint for /myname"""
         logger.info('Calculating the sum of the params..(POST)')
         data = request.json
-        return int(data[NAME_FIRST_PARAM]) + int(data[NAME_SECOND_PARAM])
+        print(data)
+        return data[NAME_FIRST_PARAM] + data[NAME_SECOND_PARAM]
 
 
 @api.route('/compute/<string:action>')
