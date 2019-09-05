@@ -46,7 +46,6 @@ class Compute(Resource):
     def post(action):
         """POST endpoint for /compute/{action}"""
         try:
-            print(request.form.to_dict())
             return calculate(action, request.form.to_dict())
         except Exception as error:
             logger.error(error)
@@ -67,7 +66,6 @@ def calculate(action, data):
         result = first_param * second_param
     elif action.lower() == 'add':
         result = first_param + second_param
-        print(result)
     elif action.lower() == 'divide':
         result = first_param / second_param
     else:

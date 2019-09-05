@@ -89,7 +89,6 @@ def update_employee_with_id(employee_id, new_employee):
     """Function to update employee info from example.csv file using
        the given employee_id and new employee info"""
     data = read_data_from_csv(CSV_FILE_NAME)
-    print(new_employee['employee_id'])
     if employee_id in data and int(employee_id) == new_employee['employee_id']:
         data[employee_id] = new_employee
     else:
