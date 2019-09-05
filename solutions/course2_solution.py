@@ -21,7 +21,7 @@ NAME_SECOND_PARAM = 'value2'
 ###################
 
 
-@api.doc(params={NAME_FIRST_PARAM: 'Parameter 1', NAME_SECOND_PARAM: 'Parameter 2'})
+@api.doc(params={NAME_FIRST_PARAM: 'value1', NAME_SECOND_PARAM: 'value2'})
 @api.route('/sum')
 class Sum(Resource):
     """Endpoint for /sum"""
@@ -35,8 +35,8 @@ class Sum(Resource):
     def post():
         """POST endpoint for /myname"""
         logger.info('Calculating the sum of the params..(POST)')
-        data = request.form
-        return data[NAME_FIRST_PARAM] + data[NAME_SECOND_PARAM]
+        data = request.json
+        return int(data[NAME_FIRST_PARAM]) + int(data[NAME_SECOND_PARAM])
 
 
 @api.route('/compute/<string:action>')
