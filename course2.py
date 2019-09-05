@@ -16,6 +16,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 
 api = Api(app, version='1.0', title='flask restplus workshop', description=descriptiveTextCourse2)
 
+
 @api.route('/hints')
 
 class hints(Resource):
@@ -36,13 +37,14 @@ class question2(Resource):
         return question2_2
 
 @api.route('/question3')
-class question3(Resource):
+class Question3(Resource):
 
     def get(self):
         return question2_3
 
     def post(self):
         return question2_3
+
 
 @api.route('/question4')
 class question4(Resource):

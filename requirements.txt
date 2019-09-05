@@ -7,3 +7,4 @@ pyOpenSSL==19.0.0
 protobuf==3.9.1
 ipaddr==2.2.0
 ordereddict==1.1
+pytest==5.0.1
