@@ -42,7 +42,6 @@ class Sum(Resource):
         """POST endpoint for /myname"""
         logger.info('Calculating the sum of the params..(POST)')
         data = request.json
-        print(data)
         return data[NAME_FIRST_PARAM] + data[NAME_SECOND_PARAM]
 
 
@@ -54,8 +53,6 @@ class Compute(Resource):
     def post(action):
         """POST endpoint for /compute/{action}"""
         try:
-            print(action)
-            print(request.form)
             return calculate(action, request.json)
         except Exception as error:
             logger.error(error)
