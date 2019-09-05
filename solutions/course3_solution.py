@@ -18,7 +18,6 @@ API_MODEL = api.model('AwesomeDictionary', {
     'Original request': fields.String(required=True, min_length=1, max_length=200, description='Original request')})
 
 
-@api.expect(API_MODEL, validate=True)
 @api.route('/jsonify')
 class Jsonify(Resource):
     """Endpoint for /jsonify"""
@@ -29,6 +28,7 @@ class Jsonify(Resource):
         return jsonify(awesome_dictionary_to_return)
 
     @staticmethod
+    @api.expect(API_MODEL, validate=True)
     @api.doc(responses={200: 'Ok'})
     def post():
         """POST endpoint for /jsonify"""

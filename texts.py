@@ -43,11 +43,7 @@ flask restplus has some nice additional tricks for easy json creation.
 
 #COURSE 2
 descriptiveTextCourse2 = """
-<<<<<<< HEAD
-Course file 2 leanrs you how to accept parameters in your API,
-=======
-Course file 2 learns you how to accept parameters in your API,
->>>>>>> master
+Course file 2 teaches you how to accept parameters in your API,
 we will start with reading the parameters from the HTTP Get call.
 And in the last one we will read the payload of an HTTP Post"""
 
@@ -74,9 +70,6 @@ request.json is also an option but we tackle json later on.
 The get method or post method should now be
 def post(self, action):
 and the action parameter is filled from the api end point.
-
-<<<<<<< HEAD
-=======
 """
 
 #COURSE 3
@@ -126,6 +119,4 @@ for example
 
 
 https://flask-restplus.readthedocs.io/en/stable/errors.html
-
->>>>>>> master
 """
