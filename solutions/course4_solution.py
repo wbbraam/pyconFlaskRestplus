@@ -17,8 +17,8 @@ api = create_api(app, mainTitle, 'Example Employee API')  # pylint: disable=inva
 CSV_FILE_NAME = '/../example.csv'
 
 API_MODEL = api.model('Employee', {
-    'Employee ID': fields.Integer(required=True, description='Id of the employee'),
-    'Name': fields.String(required=True, min_length=1, max_length=200, description='Name of the employee')})
+    'employee_id': fields.Integer(required=True, description='Id of the employee'),
+    'name': fields.String(required=True, min_length=1, max_length=200, description='Name of the employee')})
 
 logger.getLogger().setLevel(logger.INFO)
 
@@ -41,6 +41,7 @@ class Csv(Resource):
         """PUT endpoint for modifying the employee info with the given employee_id"""
         if check_if_record_is_there(employee_id):
             update_employee_with_id(employee_id, request.json)
+            return {'message': 'Employee with id {0} modified successfully!'.format(employee_id)}, 200
         else:
             raise BadRequest
 
@@ -48,7 +49,11 @@ class Csv(Resource):
     def delete(employee_id):
         """DELETE endpoint for deleting the employee info with the given employee_id"""
         try:
-            delete_employee_with_id(employee_id)
+            if check_if_record_is_there(employee_id):
+                delete_employee_with_id(employee_id)
+                return {'message': 'Employee with id {0} deleted successfully!'.format(employee_id)}, 200
+            else:
+                raise BadRequest
         except KeyError:
             raise BadRequest
 
@@ -67,8 +72,9 @@ class Csv2(Resource):
     def post():
         """POST endpoint for adding new employee info"""
         data = request.json
-        if not check_if_record_is_there(data['Employee ID']):
+        if not check_if_record_is_there(data['employee_id']):
             add_employee_data(request.json)
+            return {'message': 'Employee with id {0} saved successfully!'.format(data['employee_id'])}, 201
         else:
             raise BadRequest
 
@@ -83,8 +89,11 @@ def update_employee_with_id(employee_id, new_employee):
     """Function to update employee info from example.csv file using
        the given employee_id and new employee info"""
     data = read_data_from_csv(CSV_FILE_NAME)
-    if employee_id in data:
+    print(new_employee['employee_id'])
+    if employee_id in data and int(employee_id) == new_employee['employee_id']:
         data[employee_id] = new_employee
+    else:
+        raise BadRequest
     write_data_to_csv(CSV_FILE_NAME, data, 'r+', True, course4_field_names)
 
 
@@ -108,7 +117,7 @@ def read_data_from_csv(file_name):
         input_file = csv.DictReader(csv_file)
         for row in input_file:
             logger.info(row)
-            data[row['Employee ID']] = row
+            data[row['employee_id']] = row
     csv_file.close()
     return data
 
