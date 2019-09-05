@@ -19,8 +19,6 @@ awesome_dictionary_to_return = {"Most awesome programming language.": "Python",
 course4_field_names = ['employee_id', 'name']
 
 
-
-
 def create_app():
     """Function creating the Flask app"""
     app = Flask(__name__)
