@@ -42,15 +42,6 @@ class Question3(Resource):
     def get(self):
         return question2_3
 
-    def post(self):
-        return question2_3
-
-
-@api.route('/question4')
-class question4(Resource):
-
-    def get(self):
-        return question2_4
 
 
 if __name__ == "__main__":

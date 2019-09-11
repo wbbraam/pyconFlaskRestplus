@@ -34,6 +34,9 @@ class question1(Resource):
     def get(self):
         return question3_1
 
+    def post(self):
+        return question3_1
+
 
 @api.route('/question2')
 class question2(Resource):
