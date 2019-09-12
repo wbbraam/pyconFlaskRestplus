@@ -82,7 +82,7 @@ def test_compute_compute_bad_request(test_client):
 def test_compute_compute_bad_request_divide_by_zero(test_client):
     """test for the /compute endpoint corner case"""
 
-    data = {'value': 6, 'value2': 0}
+    data = {'value1': 6, 'value2': 0}
     url = '/compute/divide'
     response = test_client.post(url, json=data)
     assert response.status_code == 400
