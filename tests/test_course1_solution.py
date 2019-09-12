@@ -11,7 +11,7 @@ def test_client():
     course1_solution.app.config['TESTING'] = True
     client = course1_solution.app.test_client()
 
-    yield client
+    return client
 
 
 def test_question_1(test_client):

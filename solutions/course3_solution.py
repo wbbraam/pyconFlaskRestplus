@@ -4,8 +4,7 @@ import os
 
 from flask import request
 from flask import jsonify
-from flask_restplus import Resource
-from flask_restplus import Api, Resource, fields
+from flask_restplus import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 
@@ -36,7 +35,7 @@ class Jsonify(Resource):
             data = request.json
             awesome_dictionary_to_return["Original request"] = data["Original request"]
             return jsonify(awesome_dictionary_to_return)
-        except Exception as error:
+        except Exception:
             raise BadRequest
 
 

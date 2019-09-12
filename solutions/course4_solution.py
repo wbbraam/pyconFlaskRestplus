@@ -35,17 +35,6 @@ class Csv(Resource):
             raise BadRequest
 
     @staticmethod
-    @api.doc(API_MODEL)
-    @api.expect(API_MODEL)
-    def put(employee_id):
-        """PUT endpoint for modifying the employee info with the given employee_id"""
-        if check_if_record_is_there(employee_id):
-            update_employee_with_id(employee_id, request.json)
-            return {'message': 'Employee with id {0} modified successfully!'.format(employee_id)}, 200
-        else:
-            raise BadRequest
-
-    @staticmethod
     def delete(employee_id):
         """DELETE endpoint for deleting the employee info with the given employee_id"""
         try:
@@ -72,9 +61,23 @@ class Csv2(Resource):
     def post():
         """POST endpoint for adding new employee info"""
         data = request.json
+        print(data)
         if not check_if_record_is_there(data['employee_id']):
             add_employee_data(request.json)
             return {'message': 'Employee with id {0} saved successfully!'.format(data['employee_id'])}, 201
+        else:
+            raise BadRequest
+
+    @staticmethod
+    @api.doc(API_MODEL)
+    @api.expect(API_MODEL)
+    def put():
+        """PUT endpoint for modifying existing employee info"""
+        data = request.json
+        if check_if_record_is_there(data['employee_id']):
+            print('here')
+            update_employee_with_id(data['employee_id'], data)
+            return {'message': 'Employee with id {0} modified successfully!'.format(data['employee_id'])}, 200
         else:
             raise BadRequest
 
@@ -89,10 +92,8 @@ def update_employee_with_id(employee_id, new_employee):
     """Function to update employee info from example.csv file using
        the given employee_id and new employee info"""
     data = read_data_from_csv(CSV_FILE_NAME)
-    if employee_id in data and int(employee_id) == new_employee['employee_id']:
-        data[employee_id] = new_employee
-    else:
-        raise BadRequest
+    data[employee_id] = new_employee
+
     write_data_to_csv(CSV_FILE_NAME, data, 'r+', True, course4_field_names)
 
 
@@ -104,8 +105,7 @@ def add_employee_data(data):
 def delete_employee_with_id(employee_id):
     """Function to delete employee info from example.csv file using the given employee_id"""
     data = read_data_from_csv(CSV_FILE_NAME)
-    if employee_id in data:
-        del data[employee_id]
+    del data[employee_id]
     write_data_to_csv(CSV_FILE_NAME, data, 'r+', True, course4_field_names)
 
 

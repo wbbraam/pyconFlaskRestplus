@@ -36,14 +36,6 @@ class Sum(Resource):
         logger.info('Calculating the sum of the params..(GET)')
         return get_param_as_int(NAME_FIRST_PARAM) + get_param_as_int(NAME_SECOND_PARAM)
 
-    @staticmethod
-    @api.expect(API_MODEL, validate=True)
-    def post():
-        """POST endpoint for /myname"""
-        logger.info('Calculating the sum of the params..(POST)')
-        data = request.json
-        return data[NAME_FIRST_PARAM] + data[NAME_SECOND_PARAM]
-
 
 @api.expect(API_MODEL, validate=True)
 @api.route('/compute/<string:action>')
