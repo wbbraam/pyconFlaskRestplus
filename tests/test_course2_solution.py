@@ -33,9 +33,9 @@ def test_sum_with_invalid_input_should_return_bad_request(test_client):
 def test_compute_add(test_client):
     """test for the /compute/add endpoint"""
 
-    data = {'value1': '1', 'value2': '2'}
+    data = {'value1': 1, 'value2': 2}
     url = '/compute/add'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 200
     assert response.data == b'3\n'
 
@@ -43,9 +43,9 @@ def test_compute_add(test_client):
 def test_compute_subtract(test_client):
     """test for the /compute/subtract endpoint"""
 
-    data = {'value1': '5', 'value2': '3'}
+    data = {'value1': 5, 'value2': 3}
     url = '/compute/subtract'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 200
     assert response.data == b'2\n'
 
@@ -53,9 +53,9 @@ def test_compute_subtract(test_client):
 def test_compute_multiply(test_client):
     """test for the /compute/multiply endpoint"""
 
-    data = {'value1': '5', 'value2': '3'}
+    data = {'value1': 5, 'value2': 3}
     url = '/compute/multiply'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 200
     assert response.data == b'15\n'
 
@@ -63,9 +63,9 @@ def test_compute_multiply(test_client):
 def test_compute_divide(test_client):
     """test for the /compute/divide endpoint"""
 
-    data = {'value1': '6', 'value2': '3'}
+    data = {'value1': 6, 'value2': 3}
     url = '/compute/divide'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 200
     assert response.data == b'2.0\n'
 
@@ -73,16 +73,16 @@ def test_compute_divide(test_client):
 def test_compute_compute_bad_request(test_client):
     """test for the /compute endpoint with invalid param"""
 
-    data = {'value': '6', 'value2': '3'}
+    data = {'value': 6, 'value2': 3}
     url = '/compute/divide'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 400
 
 
 def test_compute_compute_bad_request_divide_by_zero(test_client):
     """test for the /compute endpoint corner case"""
 
-    data = {'value': '6', 'value2': '0'}
+    data = {'value1': 6, 'value2': 0}
     url = '/compute/divide'
-    response = test_client.post(url, data=data)
+    response = test_client.post(url, json=data)
     assert response.status_code == 400
