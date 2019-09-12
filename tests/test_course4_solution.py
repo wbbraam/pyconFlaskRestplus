@@ -15,7 +15,7 @@ def test_client():
 
 
 def test_post_employee(test_client):
-    """test for posting an employeesk"""
+    """test for posting an employee"""
 
     url = '/employee'
     data = {'name': 'Test Post', 'employee_id': 5}

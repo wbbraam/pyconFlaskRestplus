@@ -37,7 +37,7 @@ def test_compute_add(test_client):
     url = '/compute/add'
     response = test_client.post(url, json=data)
     assert response.status_code == 200
-    assert response.data == 3'
+    assert response.data == b'3\n'
 
 
 def test_compute_subtract(test_client):
@@ -47,7 +47,7 @@ def test_compute_subtract(test_client):
     url = '/compute/subtract'
     response = test_client.post(url, json=data)
     assert response.status_code == 200
-    assert response.data == 2'
+    assert response.data == b'2\n'
 
 
 def test_compute_multiply(test_client):
@@ -57,7 +57,7 @@ def test_compute_multiply(test_client):
     url = '/compute/multiply'
     response = test_client.post(url, json=data)
     assert response.status_code == 200
-    assert response.data == 15
+    assert response.data == b'15\n'
 
 
 def test_compute_divide(test_client):
@@ -67,7 +67,7 @@ def test_compute_divide(test_client):
     url = '/compute/divide'
     response = test_client.post(url, json=data)
     assert response.status_code == 200
-    assert response.data == 2.0
+    assert response.data == b'2.0\n'
 
 
 def test_compute_compute_bad_request(test_client):

@@ -72,10 +72,8 @@ class Csv2(Resource):
     @api.doc(API_MODEL)
     @api.expect(API_MODEL)
     def put():
+        """PUT endpoint for modifying existing employee info"""
         data = request.json
-        print(data['employee_id'])
-        print(check_if_record_is_there(data['employee_id']))
-        """PUT endpoint for modifying the employee info with the given employee_id"""
         if check_if_record_is_there(data['employee_id']):
             print('here')
             update_employee_with_id(data['employee_id'], data)
