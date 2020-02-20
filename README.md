@@ -5,7 +5,7 @@
 
 ## Pre-requisites
 * Python: [installation instructions](https://www.python.org/downloads/).
-* Python Pip: it should be available in your Python install, in case it is not here are [installation instructions](https://pip.pypa.io/en/stable/installing/).  
+* Python Pip: it should be available in your Python install, if this is not your case here's [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
 ## How to install requirements
 
