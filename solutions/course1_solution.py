@@ -7,13 +7,14 @@ from solutions import create_app, create_api, MY_NAME, QUESTION1_TEMPLATE
 from texts import mainTitle, descriptiveTextCourse1
 
 
-app = create_app() # pylint: disable=invalid-name
-api = create_api(app, mainTitle, descriptiveTextCourse1) # pylint: disable=invalid-name
+app = create_app()  # pylint: disable=invalid-name
+api = create_api(app, mainTitle, descriptiveTextCourse1)  # pylint: disable=invalid-name
 
 
 @api.route('/myname')
 class Question1(Resource):
     """Endpoint for /myname"""
+
     @staticmethod
     def get():
         """GET endpoint for /myname"""
@@ -23,6 +24,7 @@ class Question1(Resource):
 @api.route('/mynameUppercase')
 class Question2(Resource):
     """Endpoint for /mynameUppercase"""
+
     @staticmethod
     def get():
         """GET endpoint for /mynameUppercase"""
@@ -32,6 +34,7 @@ class Question2(Resource):
 @api.route('/concattedStrings')
 class Question3(Resource):
     """Endpoint for /concattedStrings"""
+
     @staticmethod
     def get():
         """GET endpoint for /concattedStrings"""

@@ -4,7 +4,6 @@ import os
 import csv
 import logging as logger
 
-
 from flask import jsonify, request
 from flask_restplus import Resource, fields
 from werkzeug.exceptions import BadRequest
@@ -26,6 +25,7 @@ logger.getLogger().setLevel(logger.INFO)
 @api.route('/employee/<string:employee_id>')
 class Csv(Resource):
     """Class for the employee API"""
+
     @staticmethod
     def get(employee_id):
         """GET endpoint for retrieving employee info with the given employee_id"""
@@ -50,6 +50,7 @@ class Csv(Resource):
 @api.route('/employee')
 class Csv2(Resource):
     """Class for the employee API without employee_id"""
+
     @staticmethod
     def get():
         """GET endpoint for fetching all employee records"""

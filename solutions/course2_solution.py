@@ -11,8 +11,8 @@ from solutions import create_api, create_app
 from texts import mainTitle, descriptiveTextCourse2
 
 
-app = create_app() # pylint: disable=invalid-name
-api = create_api(app, mainTitle, descriptiveTextCourse2) # pylint: disable=invalid-name
+app = create_app()  # pylint: disable=invalid-name
+api = create_api(app, mainTitle, descriptiveTextCourse2)  # pylint: disable=invalid-name
 
 API_MODEL = api.model('Resource', {
     'value1': fields.Integer(required=True),
@@ -29,6 +29,7 @@ NAME_SECOND_PARAM = 'value2'
 @api.route('/sum')
 class Sum(Resource):
     """Endpoint for /sum"""
+
     @staticmethod
     @api.doc(params={NAME_FIRST_PARAM: 'First Parameter', NAME_SECOND_PARAM: 'Second Parameter'})
     def get():
@@ -41,6 +42,7 @@ class Sum(Resource):
 @api.route('/compute/<string:action>')
 class Compute(Resource):
     """Endpoint for /compute/{action}"""
+
     @staticmethod
     def post(action):
         """POST endpoint for /compute/{action}"""

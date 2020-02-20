@@ -16,10 +16,12 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 
 api = Api(app, version='1.0', title='flask restplus workshop', description=descriptiveTextCourse4)
 
+
 @api.route('/dummy')
 class question1(Resource):
     def get(self):
         return "Dummy"
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

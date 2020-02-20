@@ -18,16 +18,17 @@ api = Api(app, version='1.0', title='flask restplus workshop', description=descr
 
 awesomeDictionaryToReturn = {}
 awesomeDictionaryToReturn["Most awesome programming language."] = "Python"
-awesomeDictionaryToReturn["Reason"]                             = "You dont need a reason."
-awesomeDictionaryToReturn["Why"]                                = "Just try to do these labs in another language."
-awesomeDictionaryToReturn["Original request"]                   = ""
+awesomeDictionaryToReturn["Reason"] = "You dont need a reason."
+awesomeDictionaryToReturn["Why"] = "Just try to do these labs in another language."
+awesomeDictionaryToReturn["Original request"] = ""
 
-@api.route('/hints')
 
+@api.route('/hints') \
 class hints(Resource):
     @api.doc(responses={200: 'Ok'})
     def get(self):
         return course3_hints
+
 
 @api.route('/question1')
 class question1(Resource):
@@ -42,6 +43,7 @@ class question1(Resource):
 class question2(Resource):
     def get(self):
         return question3_2
+
 
 @api.route('/question3')
 class question3(Resource):

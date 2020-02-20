@@ -7,9 +7,8 @@ from flask import jsonify
 from flask_restplus import Resource, fields
 from werkzeug.exceptions import BadRequest
 
-
 from solutions import create_api, create_app, mainTitle, \
-     awesome_dictionary_to_return
+    awesome_dictionary_to_return
 
 app = create_app()  # pylint: disable=invalid-name
 api = create_api(app, mainTitle, 'Course 3 Solution')  # pylint: disable=invalid-name
@@ -20,6 +19,7 @@ API_MODEL = api.model('AwesomeDictionary', {
 @api.route('/jsonify')
 class Jsonify(Resource):
     """Endpoint for /jsonify"""
+
     @staticmethod
     @api.doc(responses={200: 'Ok'})
     def get():
