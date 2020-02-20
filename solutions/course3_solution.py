@@ -4,7 +4,7 @@ import os
 
 from flask import request
 from flask import jsonify
-from flask_restplus import Resource, fields
+from flask_restx import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 from solutions import create_api, create_app, mainTitle, \

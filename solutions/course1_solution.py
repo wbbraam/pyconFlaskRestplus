@@ -2,7 +2,7 @@
 
 import os
 
-from flask_restplus import Resource
+from flask_restx import Resource
 from solutions import create_app, create_api, MY_NAME, QUESTION1_TEMPLATE
 from texts import mainTitle, descriptiveTextCourse1
 

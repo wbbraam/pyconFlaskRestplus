@@ -4,16 +4,12 @@ import string
 import random
 import os
 
-from flask import Flask
-from flask import request
-from flask_restplus import Api, Resource, fields
-from werkzeug.contrib.fixers import ProxyFix
+from flask import Flask, request
+from flask_restx import Api, Resource, fields
 
 from texts import *
 
 app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app)
-
 api = Api(app, version='1.0', title='flask restplus workshop', description=descriptiveTextCourse3)
 
 awesomeDictionaryToReturn = {}
@@ -23,7 +19,7 @@ awesomeDictionaryToReturn["Why"] = "Just try to do these labs in another languag
 awesomeDictionaryToReturn["Original request"] = ""
 
 
-@api.route('/hints') \
+@api.route('/hints')
 class hints(Resource):
     @api.doc(responses={200: 'Ok'})
     def get(self):
@@ -53,4 +49,5 @@ class question3(Resource):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='127.0.0.1', port=port)
+    # Some users had issues on Mac with debug=True, in this case try debug=False
+    app.run(debug=True, host='0.0.0.0', port=port)

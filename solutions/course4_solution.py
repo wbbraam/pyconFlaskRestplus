@@ -5,7 +5,7 @@ import csv
 import logging as logger
 
 from flask import jsonify, request
-from flask_restplus import Resource, fields
+from flask_restx import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 from solutions import create_api, create_app, mainTitle, course4_field_names
