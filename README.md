@@ -1,5 +1,5 @@
 # pyconFlaskRestX
-> pyconFlaskRestX is an introduction workshop for [flask-restx](https://github.com/python-restx/flask-restx)).  
+> pyconFlaskRestX is an introduction workshop for [flask-restx](https://github.com/python-restx/flask-restx).  
 > In this repo you will find learning materials and exercises about how to use some Python basic concepts and how to build an API.  
 > This workshop was written for PyCon 2019, UK.
 
