@@ -1,5 +1,6 @@
 # pyconFlaskRestplus
->pyconFlaskRestplus is an introduction workshop for Flask-RESTPlus (now [flask-restx](https://github.com/python-restx/flask-restx)). In this repo you will find learning materials and exercises about how to use some Python basic concepts and how to build an API. This workshop was written for  PyCon 2019, UK.
+> pyconFlaskRestplus is an introduction workshop for Flask-RESTPlus (now [flask-restx](https://github.com/python-restx/flask-restx)).  
+> In this repo you will find learning materials and exercises about how to use some Python basic concepts and how to build an API. This workshop was written for  PyCon 2019, UK.
 
 ## Pre-requisites
 * Python: [installation instructions](https://www.python.org/downloads/).
