@@ -21,7 +21,7 @@ Go to your browser and enter: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ## Explanations and hints
 
-Please be sure to read the PowerPoint file included in this repo: flask-restx.pptx.
+Please be sure to read the [PowerPoint file](https://github.com/ltpitt/python-flask-restx-workshop/blob/master/flask-restx.pptx) included in this repo.
 
 ### Contribution guidelines ###
 
