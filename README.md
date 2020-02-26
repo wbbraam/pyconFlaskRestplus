@@ -19,11 +19,17 @@
 
 Go to your browser and enter: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
+## Explanations and hints
+
+Please be sure to read the PowerPoint file included in this repo: flask-restx.pptx.
+
 ### Contribution guidelines ###
 
 * If you have any idea or suggestion contact directly the Repo Owner
 
 ### Who do I talk to? ###
 
-* [ltpitt](https://github.com/ltpitt): Repo Owner
+* [wbbraam](https://github.com/wbbraam): Repo Owner
+* [ltpitt](https://github.com/ltpitt): Contributor
+
 
