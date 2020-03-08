@@ -1,9 +1,12 @@
+![Python package](https://github.com/ltpitt/python-flask-restx-workshop/workflows/Python%20package/badge.svg)
+
 # Python flask-restx Workshop
 > Python flask-restx Workshop is an introduction workshop for [flask-restx](https://github.com/python-restx/flask-restx).  
 > In this repo you will find learning materials and exercises about how to use some Python basic concepts and how to build an API.  
 > This workshop was originally written for PyCon 2019, UK and forked from [pyconFlaskRestplus](https://github.com/wbbraam/pyconFlaskRestplus).
 
 ## Pre-requisites
+
 * Python: [installation instructions](https://www.python.org/downloads/).
 * Python Pip: it should be available in your Python install, if this is not your case here's [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
