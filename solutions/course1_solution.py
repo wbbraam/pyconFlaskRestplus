@@ -31,13 +31,13 @@ class Question2(Resource):
         return QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 
-@api.route('/concattedStrings')
+@api.route('/concatenatedStrings')
 class Question3(Resource):
-    """Endpoint for /concattedStrings"""
+    """Endpoint for /concatenatedStrings"""
 
     @staticmethod
     def get():
-        """GET endpoint for /concattedStrings"""
+        """GET endpoint for /concatenatedStrings"""
         return QUESTION1_TEMPLATE.format(MY_NAME) + QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 

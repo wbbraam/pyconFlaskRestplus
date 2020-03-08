@@ -27,6 +27,6 @@ def test_question_2(test_client):
 
 
 def test_question_3(test_client):
-    """test for the /concattedStrings endpoint"""
-    response = test_client.get('/concattedStrings')
+    """test for the /concatenatedStrings endpoint"""
+    response = test_client.get('/concatenatedStrings')
     assert response.data == b'"My name is Wietse!MY NAME IS WIETSE!"\n'
