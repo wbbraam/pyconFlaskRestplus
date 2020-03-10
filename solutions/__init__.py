@@ -1,7 +1,7 @@
 """__init__ module for the solutions package"""
 
 from flask import Flask
-from flask_restplus import Api, Resource, fields
+from flask_restx import Api, Resource, fields
 from werkzeug.contrib.fixers import ProxyFix
 
 from texts import mainTitle, descriptiveTextCourse1

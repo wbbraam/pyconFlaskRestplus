@@ -1,12 +1,38 @@
-# pyconFlaskRestplus
-Flask restplus workshop for the pycon 2019 UK
+![Python package](https://github.com/ltpitt/python-flask-restx-workshop/workflows/Python%20package/badge.svg)
 
-to install:
+# Python flask-restx Workshop
+> Python flask-restx Workshop is an introduction workshop for [flask-restx](https://github.com/python-restx/flask-restx).  
+> In this repo you will find learning materials and exercises about how to use some Python basic concepts and how to build an API.  
+> This workshop was originally written for PyCon 2019, UK and forked from [pyconFlaskRestplus](https://github.com/wbbraam/pyconFlaskRestplus).
 
-Clone repository
+## Pre-requisites
 
-pip install -r requests.txt
+* Python: [installation instructions](https://www.python.org/downloads/).
+* Python Pip: it should be available in your Python install, if this is not your case here's [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
-python3 course1.py
+## How to install requirements
 
-go to your browser and enter: http://127.0.0.1:5000/
+    $ git clone https://github.com/ltpitt/python-flask-restx-workshop.git
+    $ cd python-flask-restx-workshop
+    $ pip install -r requests.txt
+
+## How to start
+
+    $ python3 course1.py
+
+Go to your browser and enter: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+## Explanations and hints
+
+Please be sure to read the [PowerPoint file](https://github.com/ltpitt/python-flask-restx-workshop/blob/master/flask-restx.pptx) included in this repo.
+
+### Contribution guidelines ###
+
+* If you have any idea or suggestion contact directly the Repo Owner
+
+### Who do I talk to? ###
+
+* [wbbraam](https://github.com/wbbraam): Repo Owner
+* [ltpitt](https://github.com/ltpitt): Contributor
+
+

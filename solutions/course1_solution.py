@@ -2,18 +2,19 @@
 
 import os
 
-from flask_restplus import Resource
+from flask_restx import Resource
 from solutions import create_app, create_api, MY_NAME, QUESTION1_TEMPLATE
 from texts import mainTitle, descriptiveTextCourse1
 
 
-app = create_app() # pylint: disable=invalid-name
-api = create_api(app, mainTitle, descriptiveTextCourse1) # pylint: disable=invalid-name
+app = create_app()  # pylint: disable=invalid-name
+api = create_api(app, mainTitle, descriptiveTextCourse1)  # pylint: disable=invalid-name
 
 
 @api.route('/myname')
 class Question1(Resource):
     """Endpoint for /myname"""
+
     @staticmethod
     def get():
         """GET endpoint for /myname"""
@@ -23,18 +24,20 @@ class Question1(Resource):
 @api.route('/mynameUppercase')
 class Question2(Resource):
     """Endpoint for /mynameUppercase"""
+
     @staticmethod
     def get():
         """GET endpoint for /mynameUppercase"""
         return QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 
-@api.route('/concattedStrings')
+@api.route('/concatenatedStrings')
 class Question3(Resource):
-    """Endpoint for /concattedStrings"""
+    """Endpoint for /concatenatedStrings"""
+
     @staticmethod
     def get():
-        """GET endpoint for /concattedStrings"""
+        """GET endpoint for /concatenatedStrings"""
         return QUESTION1_TEMPLATE.format(MY_NAME) + QUESTION1_TEMPLATE.format(MY_NAME).upper()
 
 

@@ -1,6 +1,6 @@
-#This is to declutter your course source codes
+# This is to declutter your course source codes
 
-mainTitle='PYCON 2019 - flask_restplus workshop'
+mainTitle = 'PYCON 2019 - flask_restplus workshop'
 
 #COURSE 1
 descriptiveTextCourse1 = """
