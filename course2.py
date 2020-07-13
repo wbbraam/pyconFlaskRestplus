@@ -1,16 +1,15 @@
 #!/usr/bin/python3.6
 
-import string
-import random
 import os
-
+import random
+import string
 from flask import Flask, request
 from flask_restx import Api, Resource
 
 from texts import *
 
 app = Flask(__name__)
-#app.wsgi_app = ProxyFix(app.wsgi_app)
+# app.wsgi_app = ProxyFix(app.wsgi_app)
 
 api = Api(app, version='1.0', title='flask restplus workshop', description=descriptiveTextCourse2)
 

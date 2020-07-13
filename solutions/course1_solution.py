@@ -1,11 +1,10 @@
 """Module for the solutions of course1.py"""
 
 import os
-
 from flask_restx import Resource
+
 from solutions import create_app, create_api, MY_NAME, QUESTION1_TEMPLATE
 from texts import mainTitle, descriptiveTextCourse1
-
 
 app = create_app()  # pylint: disable=invalid-name
 api = create_api(app, mainTitle, descriptiveTextCourse1)  # pylint: disable=invalid-name

@@ -2,10 +2,9 @@
 
 from flask import Flask
 from flask_restx import Api, Resource, fields
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from texts import mainTitle, descriptiveTextCourse1
-
 
 MY_NAME = 'Wietse'
 QUESTION1_TEMPLATE = 'My name is {0}!'
