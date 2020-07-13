@@ -1,15 +1,13 @@
 """Module for the solutions of course2.py"""
 
-import os
 import logging as logger
-
+import os
 from flask import request
 from flask_restx import Resource, fields
 from werkzeug.exceptions import BadRequest
 
 from solutions import create_api, create_app
 from texts import mainTitle, descriptiveTextCourse2
-
 
 app = create_app()  # pylint: disable=invalid-name
 api = create_api(app, mainTitle, descriptiveTextCourse2)  # pylint: disable=invalid-name

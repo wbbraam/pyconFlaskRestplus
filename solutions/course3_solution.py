@@ -1,9 +1,8 @@
 """Module for the solutions of course3.py"""
 
 import os
-
-from flask import request
 from flask import jsonify
+from flask import request
 from flask_restx import Resource, fields
 from werkzeug.exceptions import BadRequest
 
