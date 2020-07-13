@@ -6,7 +6,6 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from texts import mainTitle, descriptiveTextCourse1
 
-
 MY_NAME = 'Wietse'
 QUESTION1_TEMPLATE = 'My name is {0}!'
 API_MODEL_COURSE3 = 'AwesomeDictionary', {

@@ -1,9 +1,8 @@
 """Module for the solutions of course4.py"""
 
-import os
 import csv
 import logging as logger
-
+import os
 from flask import jsonify, request
 from flask_restx import Resource, fields
 from werkzeug.exceptions import BadRequest
